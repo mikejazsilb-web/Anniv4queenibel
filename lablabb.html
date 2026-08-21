@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Our Little Love Story ❤️</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100dvh;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow-x: hidden;
+    background: #160b18;
+}
+
+/* BACKGROUND */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100dvh;
+
+    z-index: -2;
+
+    background-image: url("pictures/bg1.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    transform: scale(1.02);
+
+    transition:
+        opacity 1.2s ease,
+        transform 8s ease,
+        background-image 1.2s ease;
+}
+
+.background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.40),
+            rgba(50,10,35,.42),
+            rgba(0,0,0,.58)
+        );
+}
+
+/* PAGE */
+
+.page {
+    width: 100%;
+    min-height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* INTRO */
+
+.intro {
+    width: 100%;
+    max-width: 560px;
+
+    padding: 55px 30px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.20),
+            rgba(255,100,170,.07)
+        );
+
+    border: 1px solid rgba(255,255,255,.4);
+
+    border-radius: 35px;
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.5),
+        0 0 40px rgba(255,70,145,.2);
+
+    animation: boxAppear .8s ease;
+}
+
+.intro-heart {
+    font-size: 75px;
+    color: #ff76ad;
+
+    text-shadow:
+        0 0 15px #ff4d96,
+        0 0 35px #ff4d96,
+        0 0 60px #ff4d96;
+
+    animation: heartbeat 1.5s infinite;
+}
+
+.intro-small {
+    margin-top: 15px;
+
+    font-size: 11px;
+    letter-spacing: 5px;
+
+    color: rgba(255,255,255,.8);
+}
+
+.intro h1 {
+    margin-top: 15px;
+
+    font-family: Georgia, serif;
+
+    font-size:
+        clamp(40px,10vw,65px);
+
+    color: #ff9bc5;
+
+    text-shadow:
+        0 0 15px #ff4d96,
+        0 0 30px #ff4d96;
+}
+
+.intro p {
+    margin: 20px auto;
+
+    max-width: 430px;
+
+    line-height: 1.7;
+
+    color: rgba(255,255,255,.85);
+}
+
+.start-button {
+    width: 100%;
+    max-width: 350px;
+
+    height: 58px;
+
+    margin-top: 15px;
+
+    border: none;
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4d91,
+            #ff72ae,
+            #ff4d91
+        );
+
+    background-size: 200% 200%;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(255,50,130,.4),
+        0 0 25px rgba(255,80,160,.25);
+
+    animation:
+        buttonGradient 4s ease infinite;
+
+    transition: .3s;
+}
+
+.start-button:hover {
+    transform:
+        translateY(-4px)
+        scale(1.02);
+}
+
+/* QUIZ */
+
+.quiz {
+    width: 100%;
+    max-width: 540px;
+}
+
+.progress {
+    width: 92%;
+
+    margin:
+        0 auto 18px;
+
+    text-align: center;
+}
+
+.progress-text {
+    font-size: 13px;
+    letter-spacing: 2px;
+
+    margin-bottom: 9px;
+}
+
+.progress-bar {
+    height: 6px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,.18);
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 16.66%;
+    height: 100%;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4d91,
+            #ff9bc4
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(255,80,160,.7);
+
+    transition:
+        width .6s ease;
+}
+
+/* QUESTION BOX */
+
+.question-box {
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        45px 30px 35px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.20),
+            rgba(255,120,180,.08)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.45);
+
+    border-radius: 35px;
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.45),
+        0 0 35px rgba(255,70,145,.18),
+        inset 0 1px rgba(255,255,255,.45);
+
+    overflow: hidden;
+
+    animation:
+        boxAppear .7s ease;
+}
+
+.question-box::after {
+    content:
+        "♡  OUR LITTLE LOVE STORY  ♡";
+
+    position: absolute;
+
+    top: 18px;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+
+    font-size: 9px;
+    letter-spacing: 4px;
+
+    color:
+        rgba(255,220,235,.75);
+}
+
+.heart {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 75px;
+    height: 75px;
+
+    margin:
+        0 auto 22px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,80,150,.15);
+
+    border:
+        1px solid
+        rgba(255,160,200,.4);
+
+    font-size: 42px;
+
+    color: #ff76ad;
+
+    text-shadow:
+        0 0 10px #ff4d96,
+        0 0 25px #ff4d96,
+        0 0 45px #ff4d96;
+
+    box-shadow:
+        0 0 25px
+        rgba(255,70,150,.3);
+
+    animation:
+        heartFloat 2.5s
+        ease-in-out infinite;
+}
+
+.question {
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(
+            23px,
+            6vw,
+            31px
+        );
+
+    font-weight: 600;
+
+    line-height: 1.45;
+
+    color: white;
+
+    text-shadow:
+        0 2px 10px
+        rgba(0,0,0,.3);
+
+    margin-bottom: 28px;
+
+    animation:
+        questionAppear .6s ease;
+}
+
+/* INPUT */
+
+input {
+    width: 100%;
+    height: 56px;
+
+    padding: 0 18px;
+
+    border-radius: 17px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.35);
+
+    outline: none;
+
+    background:
+        rgba(0,0,0,.20);
+
+    color: white;
+
+    font-size: 16px;
+
+    text-align: center;
+
+    transition: .3s;
+}
+
+input:focus {
+    border-color:
+        rgba(255,120,175,.8);
+
+    background:
+        rgba(255,255,255,.10);
+
+    box-shadow:
+        0 0 20px
+        rgba(255,70,150,.25);
+
+    transform:
+        scale(1.01);
+}
+
+input::placeholder {
+    color:
+        rgba(255,255,255,.65);
+}
+
+/* NEXT BUTTON */
+
+.next-button {
+    width: 100%;
+    height: 56px;
+
+    margin-top: 17px;
+
+    border: none;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4d91,
+            #ff72ae,
+            #ff4d91
+        );
+
+    background-size: 200% 200%;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(255,50,130,.35),
+
+        0 0 20px
+        rgba(255,80,160,.2);
+
+    animation:
+        buttonGradient 4s
+        ease infinite;
+
+    transition: .25s;
+}
+
+.next-button:hover {
+    transform:
+        translateY(-3px)
+        scale(1.01);
+
+    box-shadow:
+        0 15px 35px
+        rgba(255,50,130,.45);
+}
+
+.next-button:active {
+    transform:
+        scale(.97);
+}
+
+/* DOTS */
+
+.dots {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 20px;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.5);
+
+    transition: .4s;
+}
+
+.dot.active {
+    width: 24px;
+
+    border-radius: 10px;
+
+    background:
+        #ff6ca8;
+
+    box-shadow:
+        0 0 12px
+        rgba(255,90,160,.8);
+}
+
+/* RESULT */
+
+.result {
+    min-height: 100dvh;
+
+    padding:
+        40px 15px;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.result-content {
+    width: 100%;
+    max-width: 700px;
+
+    text-align: center;
+}
+
+.title {
+    font-family: cursive;
+
+    font-size:
+        clamp(
+            42px,
+            11vw,
+            75px
+        );
+
+    color: #ff9bc5;
+
+    text-shadow:
+        0 0 15px #ff4d96,
+        0 0 30px #ff4d96;
+
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    letter-spacing: 3px;
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+}
+
+.answers {
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,.35);
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    border-radius: 25px;
+
+    backdrop-filter:
+        blur(15px);
+
+    text-align: left;
+}
+
+.answer {
+    padding: 17px 10px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.2);
+}
+
+.answer:last-child {
+    border-bottom: none;
+}
+
+.answer-question {
+    color: #ffacd0;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    margin-bottom: 7px;
+}
+
+.answer-value {
+    font-size: 16px;
+}
+
+/* ANNIVERSARY */
+
+.anniversary {
+    margin-top: 25px;
+
+    padding:
+        40px 20px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(0,0,0,.4);
+
+    backdrop-filter:
+        blur(12px);
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+}
+
+.anniversary h2 {
+    font-family: cursive;
+
+    font-size:
+        clamp(
+            45px,
+            12vw,
+            80px
+        );
+
+    color: #ff8fbe;
+
+    text-shadow:
+        0 0 15px #ff3d91,
+        0 0 30px #ff3d91;
+}
+
+.anniversary h3 {
+    margin-top: 10px;
+
+    letter-spacing: 3px;
+
+    font-size: 14px;
+}
+
+/* LETTER */
+
+.letter {
+    margin-top: 25px;
+
+    padding:
+        30px 25px;
+
+    background:
+        #ffe9f0;
+
+    color:
+        #4b2636;
+
+    border-radius: 15px;
+
+    text-align: left;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.4);
+
+    position: relative;
+}
+
+.letter::before {
+    content: "💗";
+
+    position: absolute;
+
+    right: 18px;
+    top: -20px;
+
+    font-size: 35px;
+}
+
+.letter h2 {
+    color: #e84f8c;
+
+    font-family: cursive;
+
+    font-size: 38px;
+
+    line-height: 1.2;
+
+    margin-bottom: 20px;
+}
+
+.letter p {
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    margin-bottom: 17px;
+}
+
+.signature {
+    font-family: cursive;
+
+    color: #e84f8c;
+
+    font-size: 28px;
+
+    margin-top: 25px;
+
+    text-align: right;
+}
+
+.love {
+    margin-top: 30px;
+
+    padding-bottom: 30px;
+
+    font-size: 32px;
+
+    color: #ff79ad;
+
+    text-shadow:
+        0 0 15px #ff4d96,
+        0 0 30px #ff4d96;
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+/* FIREWORKS */
+
+#fireworks {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 10;
+}
+
+/* ANIMATIONS */
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+@keyframes heartFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+
+}
+
+@keyframes boxAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+@keyframes questionAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+@keyframes buttonGradient {
+
+    0% {
+        background-position:
+            0% 50%;
+    }
+
+    50% {
+        background-position:
+            100% 50%;
+    }
+
+    100% {
+        background-position:
+            0% 50%;
+    }
+
+}
+
+/* PORTRAIT MOBILE */
+
+@media screen and (max-width: 600px) and (orientation: portrait) {
+
+    .page {
+        min-height: 100dvh;
+        padding: 15px;
+    }
+
+    .intro {
+        max-width: 390px;
+        padding: 38px 20px;
+        border-radius: 28px;
+    }
+
+    .intro-heart {
+        font-size: 58px;
+    }
+
+    .intro-small {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .intro h1 {
+        font-size: 40px;
+        line-height: 1.1;
+    }
+
+    .intro p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .start-button {
+        height: 54px;
+        font-size: 15px;
+    }
+
+    .quiz {
+        max-width: 390px;
+    }
+
+    .question-box {
+        padding:
+            42px 18px 24px;
+
+        border-radius: 28px;
+    }
+
+    .heart {
+        width: 65px;
+        height: 65px;
+
+        font-size: 35px;
+
+        margin-bottom: 18px;
+    }
+
+    .question {
+        font-size: 21px;
+        line-height: 1.45;
+
+        margin-bottom: 22px;
+    }
+
+    input,
+    .next-button {
+        height: 54px;
+    }
+
+    input {
+        font-size: 15px;
+    }
+
+    .next-button {
+        font-size: 15px;
+    }
+
+    .result {
+        padding:
+            30px 15px 40px;
+    }
+
+    .result-content {
+        max-width: 390px;
+    }
+
+    .title {
+        font-size: 43px;
+        line-height: 1.1;
+    }
+
+    .subtitle {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .answers {
+        padding: 15px;
+        border-radius: 22px;
+    }
+
+    .answer {
+        padding: 15px 5px;
+    }
+
+    .answer-question {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+    .answer-value {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .anniversary {
+        padding: 30px 15px;
+        border-radius: 25px;
+    }
+
+    .anniversary h2 {
+        font-size: 48px;
+        line-height: 1.1;
+    }
+
+    .anniversary h3 {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .letter {
+        padding: 25px 18px;
+        border-radius: 15px;
+    }
+
+    .letter h2 {
+        font-size: 30px;
+    }
+
+    .letter p {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    .signature {
+        font-size: 24px;
+    }
+
+    .love {
+        font-size: 28px;
+    }
+
+}
+
+/* VERY SMALL PHONES */
+
+@media screen and (max-width: 380px) and (orientation: portrait) {
+
+    .page {
+        padding: 10px;
+    }
+
+    .intro {
+        padding: 30px 16px;
+    }
+
+    .intro h1 {
+        font-size: 34px;
+    }
+
+    .intro-heart {
+        font-size: 50px;
+    }
+
+    .question-box {
+        padding:
+            38px 15px 20px;
+    }
+
+    .question {
+        font-size: 19px;
+    }
+
+    .title {
+        font-size: 38px;
+    }
+
+    .anniversary h2 {
+        font-size: 42px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div
+    class="background"
+    id="background">
+</div>
+
+<canvas
+    id="fireworks">
+</canvas>
+
+<!-- INTRO -->
+
+<div
+    class="page"
+    id="introPage">
+
+    <div class="intro">
+
+        <div class="intro-heart">
+            ♡
+        </div>
+
+        <div class="intro-small">
+            OUR LITTLE LOVE STORY
+        </div>
+
+        <h1>
+            1 Year Together
+        </h1>
+
+        <p>
+            Six little questions about us,
+            our memories, our favorites,
+            and the love we've shared together.
+        </p>
+
+        <button
+            class="start-button"
+            id="startButton">
+
+            Start Our Story ❤️
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- QUIZ -->
+
+<div
+    class="page hidden"
+    id="quizPage">
+
+    <div class="quiz">
+
+        <div class="progress">
+
+            <div
+                class="progress-text"
+                id="progressText">
+
+                1 / 6
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="question-box">
+
+            <div class="heart">
+                ♡
+            </div>
+
+            <div
+                class="question"
+                id="question">
+            </div>
+
+            <input
+                type="text"
+                id="answer"
+                placeholder="I-type ang imong answer..."
+                autocomplete="off">
+
+            <button
+                class="next-button"
+                id="nextButton">
+
+                Next →
+
+            </button>
+
+        </div>
+
+        <div
+            class="dots"
+            id="dots">
+        </div>
+
+    </div>
+
+</div>
+
+<!-- RESULT -->
+
+<div
+    class="result hidden"
+    id="resultPage">
+
+    <div class="result-content">
+
+        <h1 class="title">
+            Mga Atong Favorites
+        </h1>
+
+        <p class="subtitle">
+            OUR LITTLE MEMORIES ❤️
+        </p>
+
+        <div
+            class="answers"
+            id="answers">
+        </div>
+
+        <div class="anniversary">
+
+            <h2>
+                1 Year Together
+            </h2>
+
+            <h3>
+                HAPPY ANNIVERSARY! ❤️
+            </h3>
+
+        </div>
+
+        <div class="letter">
+
+            <h2>
+                Happy Anniversary,
+                My Love ❤️
+            </h2>
+
+            <p>
+                Happy anniversary to us,
+                my love. I’m so grateful that
+                we made it this far together.
+                Every moment we’ve shared
+                our happy memories, our little
+                arguments, our laughter, and
+                even our difficult days means
+                so much to me.
+            </p>
+
+            <p>
+                I also want to sincerely say
+                <b>I’m sorry</b> for the things
+                I said and for the times I may
+                have hurt you with my words.
+                I know that sometimes I speak
+                without thinking, especially
+                when I’m upset, but that doesn’t
+                excuse it. You didn’t deserve to
+                be hurt by the words I said.
+                I regret those moments, and I
+                hope you can forgive me.
+            </p>
+
+            <p>
+                I’m sorry for the times I made
+                you feel sad, disappointed, or
+                unappreciated. I want you to
+                know that I never want my words
+                or actions to make you feel like
+                you are not important to me.
+                You mean so much to me, and I’m
+                still learning how to become a
+                better partner for you.
+            </p>
+
+            <p>
+                Thank you for staying, for
+                understanding me, and for giving
+                me chances even when I make
+                mistakes. I promise to try harder
+                to listen more, think before I
+                speak, communicate better, and
+                treat your heart with more care.
+            </p>
+
+            <p>
+                One year together is a beautiful
+                milestone, and I’m thankful that
+                I get to celebrate it with you.
+                I hope we continue making memories,
+                supporting each other, and growing
+                together.
+            </p>
+
+            <p>
+                <b>
+                    I’m sorry for my mistakes,
+                    I’m thankful for your love,
+                    and I’m excited for all the
+                    memories we still have ahead
+                    of us.
+                </b>
+            </p>
+
+            <p>
+                <b>
+                    Happy anniversary,
+                    my love. ❤️
+                </b>
+            </p>
+
+            <p>
+                <b>
+                    I love you always. 💕
+                </b>
+            </p>
+
+            <div class="signature">
+                From: Ur Bana ❤️
+            </div>
+
+        </div>
+
+        <div class="love">
+            ♡ I LOVE YOU ♡
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const questions = [
+
+    "Unsa'y favorite color nato?",
+
+    "Asa ta dapit unang gisugot?",
+
+    "Unsa'y favorite game nato?",
+
+    "Unsa'y favorite nickname nato sa usag usa?",
+
+    "Unsa'y pinaka-favorite nato nga moment sa atong relationship?",
+
+    "Unsa'y favorite drink nato?"
+
+];
+
+const backgrounds = [
+
+    "bg1.jpg.jpg",
+
+    "bg2.jpg.jpg",
+
+    "bg3.jpg",
+
+    "bg4.jpg",
+
+    "bg5.jpg",
+
+    "bg6.jpeg"
+
+];
+
+let currentQuestion = 0;
+
+let answers = [];
+
+let currentBackground = 0;
+
+let backgroundTimer;
+
+const background =
+    document.getElementById("background");
+
+const introPage =
+    document.getElementById("introPage");
+
+const quizPage =
+    document.getElementById("quizPage");
+
+const resultPage =
+    document.getElementById("resultPage");
+
+const startButton =
+    document.getElementById("startButton");
+
+const question =
+    document.getElementById("question");
+
+const answer =
+    document.getElementById("answer");
+
+const nextButton =
+    document.getElementById("nextButton");
+
+const progressText =
+    document.getElementById("progressText");
+
+const progressFill =
+    document.getElementById("progressFill");
+
+const dots =
+    document.getElementById("dots");
+
+
+/* PRELOAD BACKGROUNDS */
+
+backgrounds.forEach(function(photo) {
+
+    const image = new Image();
+
+    image.src = photo;
+
+});
+
+
+/* CHANGE BACKGROUND */
+
+function changeBackground(image) {
+
+    background.style.opacity = "0";
+
+    setTimeout(function() {
+
+        background.style.backgroundImage =
+            `url("${image}")`;
+
+        background.style.transform =
+            "scale(1.04)";
+
+        background.style.opacity =
+            "1";
+
+        setTimeout(function() {
+
+            background.style.transform =
+                "scale(1.02)";
+
+        }, 100);
+
+    }, 600);
+
+}
+
+
+/* BACKGROUND SLIDESHOW */
+
+function startBackgroundSlideshow() {
+
+    changeBackground(
+        backgrounds[currentBackground]
+    );
+
+    backgroundTimer =
+        setInterval(function() {
+
+            currentBackground++;
+
+            if (
+                currentBackground >=
+                backgrounds.length
+            ) {
+
+                currentBackground = 0;
+
+            }
+
+            changeBackground(
+                backgrounds[currentBackground]
+            );
+
+        }, 5000);
+
+}
+
+startBackgroundSlideshow();
+
+
+/* SHOW QUESTION */
+
+function showQuestion() {
+
+    question.textContent =
+        questions[currentQuestion];
+
+    answer.value =
+        answers[currentQuestion] || "";
+
+    progressText.textContent =
+        (currentQuestion + 1)
+        + " / "
+        + questions.length;
+
+    progressFill.style.width =
+        (
+            (currentQuestion + 1)
+            / questions.length
+            * 100
+        ) + "%";
+
+    if (
+        currentQuestion ===
+        questions.length - 1
+    ) {
+
+        nextButton.textContent =
+            "See Our Answers 💗";
+
+    } else {
+
+        nextButton.textContent =
+            "Next →";
+
+    }
+
+    dots.innerHTML = "";
+
+    questions.forEach(function(q, index) {
+
+        const dot =
+            document.createElement("span");
+
+        dot.classList.add("dot");
+
+        if (
+            index ===
+            currentQuestion
+        ) {
+
+            dot.classList.add("active");
+
+        }
+
+        dots.appendChild(dot);
+
+    });
+
+    setTimeout(function() {
+
+        answer.focus();
+
+    }, 100);
+
+}
+
+
+/* START */
+
+startButton.addEventListener(
+    "click",
+    function() {
+
+        introPage.classList.add("hidden");
+
+        quizPage.classList.remove("hidden");
+
+        showQuestion();
+
+    }
+);
+
+
+/* NEXT */
+
+nextButton.addEventListener(
+    "click",
+    function() {
+
+        answers[currentQuestion] =
+            answer.value.trim();
+
+        if (
+            currentQuestion <
+            questions.length - 1
+        ) {
+
+            currentQuestion++;
+
+            showQuestion();
+
+        } else {
+
+            showResults();
+
+        }
+
+    }
+);
+
+
+/* ENTER */
+
+answer.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter"
+        ) {
+
+            nextButton.click();
+
+        }
+
+    }
+);
+
+
+/* RESULTS */
+
+function showResults() {
+
+    quizPage.classList.add("hidden");
+
+    resultPage.classList.remove("hidden");
+
+    const answerContainer =
+        document.getElementById("answers");
+
+    answerContainer.innerHTML = "";
+
+    questions.forEach(
+        function(q, index) {
+
+            const item =
+                document.createElement("div");
+
+            item.className = "answer";
+
+            item.innerHTML = `
+
+                <div class="answer-question">
+
+                    ${q}
+
+                </div>
+
+                <div class="answer-value">
+
+                    ${
+                        answers[index]
+                        ||
+                        "Wala'y answer 😘"
+                    }
+
+                </div>
+
+            `;
+
+            answerContainer.appendChild(item);
+
+        }
+    );
+
+    startFireworks();
+
+}
+
+
+/* FIREWORKS */
+
+const canvas =
+    document.getElementById("fireworks");
+
+const ctx =
+    canvas.getContext("2d");
+
+let particles = [];
+
+let fireworksStarted = false;
+
+
+function resizeCanvas() {
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
+}
+
+resizeCanvas();
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+function createFirework(x, y) {
+
+    const colors = [
+
+        "#ff4d91",
+
+        "#ff9fc4",
+
+        "#ffffff",
+
+        "#ffd1e4",
+
+        "#ffdf73"
+
+    ];
+
+    for (
+        let i = 0;
+        i < 70;
+        i++
+    ) {
+
+        const angle =
+            Math.random()
+            * Math.PI
+            * 2;
+
+        const speed =
+            1.5 +
+            Math.random() * 5;
+
+        particles.push({
+
+            x: x,
+
+            y: y,
+
+            vx:
+                Math.cos(angle)
+                * speed,
+
+            vy:
+                Math.sin(angle)
+                * speed,
+
+            life:
+                70 +
+                Math.random() * 40,
+
+            color:
+                colors[
+                    Math.floor(
+                        Math.random()
+                        * colors.length
+                    )
+                ]
+
+        });
+
+    }
+
+}
+
+
+function animateFireworks() {
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    particles =
+        particles.filter(
+            function(particle) {
+
+                return particle.life > 0;
+
+            }
+        );
+
+    particles.forEach(
+        function(particle) {
+
+            particle.x +=
+                particle.vx;
+
+            particle.y +=
+                particle.vy;
+
+            particle.vy += .04;
+
+            particle.life--;
+
+            ctx.globalAlpha =
+                particle.life / 100;
+
+            ctx.fillStyle =
+                particle.color;
+
+            ctx.beginPath();
+
+            ctx.arc(
+                particle.x,
+                particle.y,
+                2,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fill();
+
+        }
+    );
+
+    ctx.globalAlpha = 1;
+
+    requestAnimationFrame(
+        animateFireworks
+    );
+
+}
+
+
+function startFireworks() {
+
+    if (fireworksStarted) {
+        return;
+    }
+
+    fireworksStarted = true;
+
+    animateFireworks();
+
+    createFirework(
+        window.innerWidth * .25,
+        window.innerHeight * .25
+    );
+
+    createFirework(
+        window.innerWidth * .75,
+        window.innerHeight * .25
+    );
+
+    createFirework(
+        window.innerWidth * .5,
+        window.innerHeight * .18
+    );
+
+    setInterval(
+        function() {
+
+            createFirework(
+
+                80 +
+                Math.random()
+                *
+                (
+                    window.innerWidth
+                    - 160
+                ),
+
+                80 +
+                Math.random()
+                *
+                (
+                    window.innerHeight
+                    * .45
+                )
+
+            );
+
+        },
+        800
+    );
+
+}
+
+</script>
+
+</body>
+</html>
